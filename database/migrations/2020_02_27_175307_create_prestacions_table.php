@@ -16,8 +16,8 @@ class CreatePrestacionsTable extends Migration
         Schema::create('prestacions', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('presta_nombre');
-            $table->string('presta_descripcion');
-            $table->double('presta_valor');
+            $table->string('presta_descripcion')->nullable();
+            $table->double('presta_valor')->default(1);
             $table->timestamps();
         });
     }

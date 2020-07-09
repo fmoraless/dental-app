@@ -17,7 +17,7 @@ class CreatePresupuestosTable extends Migration
             $table->bigIncrements('id');
             $table->string('presup_descripcion');
             $table->string('presup_observacion')->nullable();
-            $table->date('presup_expiracion');
+            $table->date('presup_expiracion')->default(now());
             $table->double('presup_descuento')->nullable();
             $table->timestamps();
 
