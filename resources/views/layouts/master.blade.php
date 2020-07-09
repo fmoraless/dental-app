@@ -18,12 +18,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
     @if(env('APP_ENV') == 'local')
         <script src="{{ asset('js/app.js') }}"></script>
     @else
-        <script src="{{ secure_asset('js/app.js') }}"></script>
+        <script src="{{ secure_asset('js/app.js') }}"></scrip>
     @endif
 
 <!-- Styles -->
     @if(env('APP_ENV') == 'local')
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+{{--        <link href="{{ asset('select2/css/select2.min.css') }}"></link>--}}
     @else
         <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
 @endif
@@ -34,7 +35,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 </head>
 
 <body class="hold-transition sidebar-mini">
-<div class="wrapper">
+<div id="app" class="wrapper">
 
     <!-- Navbar -->
     <nav class="main-header navbar navbar-expand navbar-dark bg-cyan">
@@ -135,7 +136,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link active">
+                                <a href="{{ route('presupuesto.index') }}" class="nav-link active">
                                     <i class="fas fa-calculator nav-icon"></i>
                                     <p>Mis Presupuestos</p>
                                 </a>
@@ -215,11 +216,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <!-- ./wrapper -->
 
 <!-- REQUIRED SCRIPTS -->
+@yield('scripts')
 </body>
 <script>
     $(function () {
-        $('[data-toggle="tooltip"]').tooltip()
-    })
+        $('[data-toggle="tooltip"]').tooltip();
+    });
 </script>
 
 </html>
